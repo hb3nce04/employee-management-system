@@ -8,6 +8,7 @@ import methodOvrride from "method-override";
 import flash from "express-flash";
 
 import { database } from "./libs/database/config.js";
+import sessionStore from "./libs/database/session.js";
 
 import apiRoutes from "./routes/api/main.js";
 import mainRoutes from "./routes/main.js";
@@ -41,6 +42,7 @@ app.use(
       secure: process.env.ENVIRONMENT !== "development",
       maxAge: 7 * 24 * 60 * 60,
     },
+    store: sessionStore,
   })
 );
 app.use(expressEjsLayouts);

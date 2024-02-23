@@ -27,13 +27,15 @@
       <td><%= employee.address %></td>
       <td><%= employee.Department.name %></td>
       <td>
-        <button type="button" class="btn btn-outline-primary">Edit</button>
-        <a
-          type="button"
-          href="/api/employees/<%= employee.id %>?method=DELETE"
-          class="btn btn-outline-danger"
-          >Delete</a
+        <button type="button" class="btn btn-outline-primary my-1">Edit</button>
+        <form
+          action="/api/employees/<%= employee.id %>?method=DELETE"
+          method="post"
         >
+          <button type="submit" class="btn btn-outline-danger my-1">
+            Delete
+          </button>
+        </form>
       </td>
     </tr>
     <% }) %>

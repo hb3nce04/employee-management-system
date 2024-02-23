@@ -96,7 +96,7 @@ const Employee = new typeorm.EntitySchema({
   relations: {
     Department: {
       target: "Department",
-      type: "one-to-one",
+      type: "many-to-one",
       joinColumn: { name: "department_id" },
       onDelete: "RESTRICT",
       onUpdate: "CASCADE",
