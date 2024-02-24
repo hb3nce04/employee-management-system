@@ -4,8 +4,17 @@ const getAllEmployees = async (req, res, next) => {
   const employees = await employeeRepository.find({
     relations: { Department: true },
   });
-  console.log(employees);
   res.render("pages/employees", { employees: employees });
 };
 
-export { getAllEmployees };
+const editEmployeeByID = async (req, res, next) => {
+  const { id } = req.params;
+
+  const foundEmployee = await employeeRepository.findOne({
+    relations: { Department: true },
+    where: { id: id },
+  });
+  res.render("pages/editEmployee", { employee: foundEmployee });
+};
+
+export { getAllEmployees, editEmployeeByID };

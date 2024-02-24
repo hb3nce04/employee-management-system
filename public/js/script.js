@@ -1,9 +1,3 @@
-/*!
- * Color mode toggler for Bootstrap's docs (https://getbootstrap.com/)
- * Copyright 2011-2023 The Bootstrap Authors
- * Licensed under the Creative Commons Attribution 3.0 Unported License.
- */
-
 (() => {
   "use strict";
 
@@ -85,6 +79,24 @@
         setTheme(theme);
         showActiveTheme(theme, true);
       });
+    });
+
+    var url = location.href;
+    var parts = url
+      .split("/")
+      .slice(3)
+      .map((e) =>
+        (e.charAt(0).toUpperCase() + e.slice(1)).replace(/[^a-zA-Z ]/g, "")
+      )
+      .filter((val) => isNaN(parseInt(val)));
+    parts.forEach((e) => {
+      $("ol.breadcrumb").append(
+        `<li class="breadcrumb-item">${
+          parts.length === 1 || e === parts[parts.length - 1]
+            ? e
+            : `<a href="/${e.toLowerCase()}"}>${e}</a>`
+        }</li>`
+      );
     });
   });
 })();

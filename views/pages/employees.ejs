@@ -1,4 +1,4 @@
-<h2 class="text-center py-2">Employees</h2>
+<h2 class="text-center">Employees</h2>
 <table class="table table-striped table-hover">
   <thead>
     <tr>
@@ -27,15 +27,23 @@
       <td><%= employee.address %></td>
       <td><%= employee.Department.name %></td>
       <td>
-        <button type="button" class="btn btn-outline-primary my-1">Edit</button>
-        <form
-          action="/api/employees/<%= employee.id %>?method=DELETE"
-          method="post"
-        >
-          <button type="submit" class="btn btn-outline-danger my-1">
-            Delete
-          </button>
-        </form>
+        <div class="d-flex">
+          <a
+            href="/employees/edit/<%= employee.id %>"
+            class="btn btn-sm btn-primary m-1"
+          >
+            Edit
+          </a>
+
+          <form
+            action="/api/employees/<%= employee.id %>?method=DELETE"
+            method="post"
+          >
+            <button type="submit" class="btn btn-sm btn-danger m-1">
+              Delete
+            </button>
+          </form>
+        </div>
       </td>
     </tr>
     <% }) %>

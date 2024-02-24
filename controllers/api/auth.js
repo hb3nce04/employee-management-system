@@ -10,6 +10,7 @@ const authenticateUser = async (req, res, next) => {
       id: true,
       username: true,
       password: true,
+      is_admin: true,
       Employee: { id: true },
     },
     where: { username: username },
@@ -20,12 +21,18 @@ const authenticateUser = async (req, res, next) => {
     return res.redirect("/");
   }
 
-  await bcrypt.compare(password, foundUser.password).then((result) => {
+  await bcrypt.compare(password, foundUser.password).then(async (result) => {
     result = password === "teszt";
     if (result) {
+      await userRepository.update(
+        { id: foundUser.id },
+        { last_login: () => "CURRENT_TIMESTAMP" }
+      );
+
       req.session.user = {
         id: foundUser.id,
         username: foundUser.username,
+        isAdmin: foundUser.is_admin,
         employeeID: foundUser.Employee.id,
       };
       res.redirect("/");

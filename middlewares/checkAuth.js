@@ -4,6 +4,7 @@ const checkAuth = (req, res, next) => {
   }
 
   req.app.locals.username = req.session.user.username;
+  req.app.locals.isAdmin = req.session.user.isAdmin;
   next();
 };
 

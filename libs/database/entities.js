@@ -117,6 +117,7 @@ const Department = new typeorm.EntitySchema({
     name: {
       type: "varchar",
       length: 30,
+      unique: true,
     },
   },
 });

@@ -1,15 +1,13 @@
 import "dotenv/config";
 import express from "express";
 import morgan from "morgan";
-import session from "express-session";
 import expressEjsLayouts from "express-ejs-layouts";
 import cookieParser from "cookie-parser";
 import methodOvrride from "method-override";
 import flash from "express-flash";
 
+import setSession from "./libs/session.js";
 import { database } from "./libs/database/config.js";
-import sessionStore from "./libs/database/session.js";
-
 import apiRoutes from "./routes/api/main.js";
 import mainRoutes from "./routes/main.js";
 
@@ -29,22 +27,10 @@ database
 
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
-//app.use(express.json());
+app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(methodOvrride("method", ["POST", "GET"]));
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      httpOnly: true,
-      secure: process.env.ENVIRONMENT !== "development",
-      maxAge: 7 * 24 * 60 * 60,
-    },
-    store: sessionStore,
-  })
-);
+setSession(app);
 app.use(expressEjsLayouts);
 app.use(express.static("public"));
 app.set("view engine", "ejs");
@@ -52,7 +38,3 @@ app.use(flash());
 
 app.use("/api", apiRoutes);
 app.use(mainRoutes);
-
-app.get("*", function (req, res) {
-  res.sendStatus(404);
-});

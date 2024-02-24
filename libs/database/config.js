@@ -15,7 +15,7 @@ var dataSource = new DataSource({
 
 const userRepository = dataSource.getRepository("User");
 const employeeRepository = dataSource.getRepository("Employee");
-const departmentRepository = dataSource.getRepository("Employee");
+const departmentRepository = dataSource.getRepository("Department");
 
 export {
   dataSource as database,

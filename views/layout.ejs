@@ -2,8 +2,10 @@
 <html lang="en">
   <%- include("./includes/head.ejs") %>
   <body>
-    <%- include("./includes/navbar.ejs") %>
+    <%- include("./includes/theme.ejs") %> <%- include("./includes/navbar.ejs")
+    %>
     <div class="container py-2">
+      <h1 class="fw-light">Dashboard</h1>
       <%- include("./includes/breadcrumb.ejs") %> <% if (messages.info) { %>
       <div class="alert alert-primary" role="alert"><%= messages.info %></div>
       <% } %> <% if (messages.error) { %>
@@ -14,7 +16,6 @@
       </div>
       <% } %> <%- body -%>
     </div>
-    <%- include("./includes/footer.ejs") %> <%- include("./includes/foot.ejs")
-    %>
+    <%- include("./includes/foot.ejs") %>
   </body>
 </html>

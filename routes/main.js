@@ -1,8 +1,11 @@
 import { Router } from "express";
 
 import { checkAuth, checkNotAuth } from "../middlewares/checkAuth.js";
+import checkAdmin from "../middlewares/checkAdmin.js";
 
+import departmentRoute from "./department.js";
 import employeeRoutes from "./employee.js";
+import userRoutes from "./user.js";
 
 const router = Router();
 
@@ -28,8 +31,12 @@ router.get("/auth", checkNotAuth, (req, res, next) => {
   res.render("pages/auth", { layout: false });
 });
 
-router.use(checkAuth);
+router.use("/departments", checkAuth, checkAdmin, departmentRoute);
+router.use("/employees", checkAuth, checkAdmin, employeeRoutes);
+router.use("/users", checkAuth, checkAdmin, userRoutes);
 
-router.use("/employees", employeeRoutes);
+router.get("*", function (req, res) {
+  res.render("pages/404", { layout: false });
+});
 
 export default router;
