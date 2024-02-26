@@ -6,7 +6,6 @@
       <th scope="col">Username</th>
       <th scope="col">E-mail address</th>
       <th scope="col">Phone number</th>
-      <th scope="col">Admin</th>
       <th></th>
     </tr>
   </thead>
@@ -17,9 +16,7 @@
       <td><%= user.username %></td>
       <td><%= user.email %></td>
       <td><%= user.phone_number %></td>
-      <td class="<%= user.is_admin ? "bg-success" : "bg-danger" %>"></td>
       <td>
-
         <div class="d-flex">
           <a
             href="/users/edit/<%= user.id %>"
@@ -28,10 +25,7 @@
             Edit
           </a>
 
-          <form
-            action="/api/users/<%= user.id %>?method=DELETE"
-            method="post"
-          >
+          <form action="/api/users/<%= user.id %>?method=DELETE" method="post">
             <button type="submit" class="btn btn-sm btn-danger m-1">
               Delete
             </button>
@@ -42,3 +36,7 @@
     <% }) %>
   </tbody>
 </table>
+
+<div class="d-grid">
+  <a href="/users/create" class="btn btn-primary btn-sm">Register new user</a>
+</div>

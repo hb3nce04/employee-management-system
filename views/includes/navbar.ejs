@@ -1,10 +1,8 @@
-<nav class="navbar navbar-expand-lg data-bs-theme border-bottom">
+<nav class="navbar navbar-expand-lg border-bottom sticky-top">
   <div class="container-fluid">
     <div class="d-flex flex-column">
       <a class="navbar-brand p-0" href="/">Employee Management System</a>
-      <span class="text-primary fw-bold"
-        ><%- isAdmin ? "Admin" : "Employee"%></span
-      >
+      <span class="text-primary fw-bold">Admin</span>
     </div>
     <button
       class="navbar-toggler"
@@ -25,7 +23,6 @@
         <li class="nav-item">
           <a class="nav-link" href="/home">Home</a>
         </li>
-        <% if (isAdmin) { %>
         <li class="nav-item">
           <a class="nav-link" href="/departments">Departments</a>
         </li>
@@ -35,7 +32,6 @@
         <li class="nav-item">
           <a class="nav-link" href="/users">Users</a>
         </li>
-        <% } %>
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle px-2"

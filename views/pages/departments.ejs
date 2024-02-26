@@ -15,14 +15,14 @@
       <td>
         <div class="d-flex">
           <a
-            href="/departments/edit/<%= departments.id %>"
+            href="/departments/edit/<%= department.id %>"
             class="btn btn-sm btn-primary m-1"
           >
             Edit
           </a>
 
           <form
-            action="/api/departments/<%= departments.id %>?method=DELETE"
+            action="/api/departments/<%= department.id %>?method=DELETE"
             method="post"
           >
             <button type="submit" class="btn btn-sm btn-danger m-1">
@@ -37,5 +37,7 @@
 </table>
 
 <div class="d-grid">
-  <button class="btn btn-warning btn-sm">Create new department</button>
+  <a href="/departments/create" class="btn btn-primary btn-sm"
+    >Create a new department</a
+  >
 </div>

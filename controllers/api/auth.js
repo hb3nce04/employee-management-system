@@ -10,11 +10,8 @@ const authenticateUser = async (req, res, next) => {
       id: true,
       username: true,
       password: true,
-      is_admin: true,
-      Employee: { id: true },
     },
     where: { username: username },
-    relations: { Employee: true },
   });
   if (!foundUser) {
     req.flash("error", "Invalid creditials!");
@@ -32,8 +29,6 @@ const authenticateUser = async (req, res, next) => {
       req.session.user = {
         id: foundUser.id,
         username: foundUser.username,
-        isAdmin: foundUser.is_admin,
-        employeeID: foundUser.Employee.id,
       };
       res.redirect("/");
     } else {

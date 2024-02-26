@@ -26,10 +26,6 @@ const User = new typeorm.EntitySchema({
       length: 12,
       nullable: true,
     },
-    is_admin: {
-      type: "boolean",
-      default: false,
-    },
     last_login: {
       type: "datetime",
       nullable: true,
@@ -37,15 +33,6 @@ const User = new typeorm.EntitySchema({
     created_at: {
       type: "datetime",
       default: () => "CURRENT_TIMESTAMP",
-    },
-  },
-  relations: {
-    Employee: {
-      target: "User",
-      type: "one-to-one",
-      joinColumn: { name: "employee_id" },
-      onDelete: "SET NULL",
-      onUpdate: "CASCADE",
     },
   },
 });
