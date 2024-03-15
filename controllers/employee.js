@@ -20,4 +20,8 @@ const editEmployeeByID = async (req, res, next) => {
   res.render("pages/editEmployee", { employee: foundEmployee });
 };
 
-export { getAllEmployees, editEmployeeByID };
+const createEmployee = async (req, res, next) => {
+  res.render("pages/createEmployee");
+};
+
+export { getAllEmployees, createEmployee, editEmployeeByID };

@@ -109,4 +109,43 @@ const Department = new typeorm.EntitySchema({
   },
 });
 
+const Skills = new typeorm.EntitySchema({
+  name: "Skills",
+  tableName: "skills",
+  columns: {
+    id: {
+      primary: true,
+      width: 5,
+      type: "int",
+      generated: true,
+    },
+    name: {
+      type: "varchar",
+      length: 16,
+      nullable: false,
+    },
+  },
+});
+
+const WorkingHistory = new typeorm.EntitySchema({
+  name: "WorkingHistory",
+  tableName: "working_history",
+  columns: {
+    id: {
+      primary: true,
+      width: 5,
+      type: "int",
+      generated: true,
+    },
+    start: {
+      type: "date",
+      nullable: false,
+    },
+    end: {
+      type: "date",
+      nullable: false,
+    },
+  },
+});
+
 export { User, Employee, Department };

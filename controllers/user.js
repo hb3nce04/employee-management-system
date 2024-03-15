@@ -5,4 +5,8 @@ const getAllUsers = async (req, res, next) => {
   res.render("pages/users", { users: users });
 };
 
-export { getAllUsers };
+const createUsers = async (req, res, next) => {
+  res.render("pages/createUser");
+};
+
+export { getAllUsers, createUsers };
