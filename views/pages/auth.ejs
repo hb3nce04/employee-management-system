@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../includes/head.ejs") %>
+  <body id="auth">
+    <%- include("../includes/theme.ejs") %>
+    <div class="login-box bg-body border rounded">
+      <h2 class="fw-light mb-3 text-center">Admin</h2>
+
+      <h4 class="fw-normal">Sign in</h4>
+
+      <% if (messages.info) { %>
+      <div class="alert alert-primary" role="alert"><%= messages.info %></div>
+      <% } %> <% if (messages.error) { %>
+      <div class="alert alert-danger" role="alert"><%= messages.error %></div>
+      <% } %> <% if (messages.success) { %>
+      <div class="alert alert-success" role="alert">
+        <%= messages.success %>
+      </div>
+      <% } %>
+      <form action="/api/auth" method="POST">
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder=""
+            name="username"
+          />
+          <label for="floatingInput">Username</label>
+        </div>
+        <div class="form-floating mt-2">
+          <input
+            type="password"
+            class="form-control"
+            id="floatingPassword"
+            placeholder=""
+            name="password"
+          />
+          <label for="floatingPassword">Password</label>
+        </div>
+        <div class="my-2 text-center">
+          Forgot your password?
+          <a href="#">Click</a>
+        </div>
+        <button class="btn btn-primary w-100 my-3" type="submit">
+          Sign in
+        </button>
+        <p class="my-2 text-body-secondary text-center">
+          © <%= new Date().getFullYear() %>
+        </p>
+      </form>
+    </div>
+    <%- include("../includes/foot.ejs") %>
+  </body>
+</html>

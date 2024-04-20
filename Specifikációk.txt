@@ -1,0 +1,22 @@
+Employee Management Sytem specifikációi:
+	- átállni Prisma-ra
+	- CSAK ADMIN ROLE van
+	- API protect (hozzáadhatunk egy JWT réteget is)
+	- le kell rövidíteni a Session "életkorát" production módban
+	- Session Logout timer / interakció hiányában kiléptetés
+	- Notificationok
+	- Új dolgozó hozzáadása
+	- Dolgozó adatainak megtekintése
+	- Dolgozó adatainak bővítése (felvétel dátuma pl)
+	- My department rész
+	- szerepkörök hozzáadása
+	- Elfelejtett jelszó
+	- Usert hozzáadni belülről lehessen, hozzáadás után, email kimegy mellyel lehet a fiókhoz jelszót beállítani.
+	- metadata tábla (id, key, value) - pl vállalkozás adatainak eltárolására
+	- főoldalon összegzés pl. : dolgozók, osztályok stb
+	- upload file, create reports
+	- set salary
+	- pagination
+	- send email with nodejs
+	- jelenléti ív megoldása
+	- nyelvválasztás - magyar, angol

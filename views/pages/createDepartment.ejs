@@ -1,0 +1,21 @@
+<h2 class="text-center">Create new department</h2>
+<div class="row">
+  <div class="col-6 mx-auto">
+    <form action="/api/departments/?method=POST" method="post">
+      <label for="basic-url" class="form-label">Department name</label>
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          id="basic-url"
+          aria-describedby="basic-addon3 basic-addon4"
+          name="name"
+        />
+      </div>
+      <div class="form-text" id="basic-addon4">
+        You can type the name of the new department.
+      </div>
+      <button type="submit" class="btn btn-primary mt-2 w-100">Create</button>
+    </form>
+  </div>
+</div>

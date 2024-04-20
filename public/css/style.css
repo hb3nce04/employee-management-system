@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+
+html,
+body {
+  height: 100%;
+}
+
+body#auth {
+  background-image: url("/img/bg.jpg");
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 330px;
+  padding: 30px;
+  margin: 0 auto;
+  top: 80px;
+  position: relative;
+}
